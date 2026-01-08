@@ -1,0 +1,156 @@
+import { NextRequest, NextResponse } from 'next/server';
+import Anthropic from '@anthropic-ai/sdk';
+import { z } from 'zod';
+import type { SnapshotStrategy, Snapshot } from '@/types';
+
+// Validation schema
+const snapshotGenerationSchema = z.object({
+  worldName: z.string().min(1),
+  releaseDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  color: z.string().optional(),
+  visualReferences: z.array(z.string()).optional(),
+  galaxyVisualLandscape: z.object({
+    images: z.array(z.string()).optional(),
+    colorPalette: z.array(z.string()).optional(),
+  }).optional(),
+});
+
+function getAnthropicClient(): Anthropic {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    throw new Error('ANTHROPIC_API_KEY is not configured');
+  }
+  return new Anthropic({ apiKey });
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const data = snapshotGenerationSchema.parse(body);
+
+    const client = getAnthropicClient();
+
+    // Build prompt for snapshot generation
+    const prompt = buildSnapshotPrompt(data);
+
+    const message = await client.messages.create({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 4000,
+      messages: [{ role: 'user', content: prompt }],
+    });
+
+    const content = message.content[0];
+    if (content.type !== 'text') {
+      throw new Error('Unexpected response type from Claude');
+    }
+
+    // Parse JSON from response
+    const jsonMatch = content.text.match(/\[[\s\S]*\]/);
+    if (!jsonMatch) {
+      throw new Error('Could not parse JSON from Claude response');
+    }
+
+    const snapshots: Omit<Snapshot, 'id' | 'worldId'>[] = JSON.parse(jsonMatch[0]);
+
+    // Create snapshot strategy
+    const strategy: SnapshotStrategy = {
+      id: `snapshot-strategy-${Date.now()}`,
+      worldId: `world-${Date.now()}`, // Will be replaced by caller
+      snapshots: snapshots.map((snapshot, index) => ({
+        id: `snapshot-${index + 1}`,
+        worldId: `world-${Date.now()}`,
+        ...snapshot,
+      })),
+      generatedAt: new Date().toISOString(),
+    };
+
+    return NextResponse.json(strategy);
+  } catch (error) {
+    console.error('Error generating snapshots:', error);
+    
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: 'Validation error', details: error.errors },
+        { status: 400 }
+      );
+    }
+
+    return NextResponse.json(
+      { error: 'Failed to generate snapshot strategy', message: error instanceof Error ? error.message : 'Unknown error' },
+      { status: 500 }
+    );
+  }
+}
+
+function buildSnapshotPrompt(data: z.infer<typeof snapshotGenerationSchema>): string {
+  const releaseDate = new Date(data.releaseDate);
+  const today = new Date();
+  const daysUntilRelease = Math.ceil(
+    (releaseDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
+  );
+
+  const colorInfo = data.color ? `\n- Primary Color: ${data.color}` : '';
+  const visualInfo = data.visualReferences && data.visualReferences.length > 0
+    ? `\n- Visual References: ${data.visualReferences.length} images selected`
+    : '';
+
+  return `You are a creative director specializing in visual storytelling for music releases.
+
+Generate a snapshot strategy (social media content plan) for this world (song release):
+
+WORLD INFORMATION:
+- World Name (Song Title): "${data.worldName}"
+- Release Date: ${data.releaseDate} (${daysUntilRelease} days from now)${colorInfo}${visualInfo}
+
+SNAPSHOT REQUIREMENTS:
+Each snapshot should be a visual, imagery-rich description of what the social media content will look like. Think of snapshots as "memories" or "events" that occurred on this world.
+
+For each snapshot, provide:
+1. **Visual Description**: A detailed, imagery-rich description of what the video/photo will look like
+   - Describe the scene, mood, colors, movement, composition
+   - Be specific about visual elements (e.g., "15-second loop of artist running through lush forest")
+   - Include duration if it's a video (10-15 second loops work well)
+   - Describe the emotional tone and visual style
+
+2. **Platform & Content Type**: Choose appropriate platform and content type
+   - Instagram: Reels, Stories, Posts, Carousels
+   - TikTok: Short videos, trends
+   - Twitter: Visual posts with text
+
+3. **Suggested Filming Date**: When this snapshot should be filmed (before release date)
+4. **Timing**: When it should be posted (day of week + time)
+5. **Caption**: Optional, but can suggest a caption that matches the visual
+
+SNAPSHOT DISTRIBUTION:
+- Create 6-10 snapshots total
+- Distribute across the release cycle:
+  * 2-3 weeks before release: Teaser/anticipation snapshots
+  * 1 week before release: Countdown/pre-save snapshots
+  * Release week: Launch snapshots
+  * 1 week after: Post-release engagement
+
+VISUAL COHERENCE:
+- All snapshots should feel part of the same visual universe
+- Use the color palette and visual references to inform the descriptions
+- Each snapshot should tell part of the story of this world
+
+Return as a JSON array with this EXACT structure:
+[
+  {
+    "visualDescription": "A 15-second loop of the artist running through a lush forest, lip-syncing the lyrics. The scene is color-graded with deep greens and warm sunlight filtering through trees.",
+    "caption": "Will I find you in the forest? 🌲",
+    "platform": "instagram",
+    "contentType": "reel",
+    "suggestedFilmingDate": "2024-05-15",
+    "timing": "Tuesday 2pm",
+    "order": 1
+  }
+]
+
+Platform options: "instagram" | "tiktok" | "twitter"
+Content type options: "photo" | "video" | "story" | "reel" | "carousel"
+Order: Number indicating sequence in release cycle (1, 2, 3, etc.)
+
+Generate 6-10 snapshots with rich visual descriptions that artists can use to film and create their content.`;
+}
+

@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Star Wars Font for The Multiverse */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+/* Star Wars-esque styling */
+.font-star-wars {
+  font-family: 'Orbitron', 'Arial Black', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

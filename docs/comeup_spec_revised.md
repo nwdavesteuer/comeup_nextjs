@@ -1,121 +1,198 @@
-# Artist Content Platform - Product Specification
-## From Content Generation to Intelligence Network
+# The Multiverse - Product Specification
+## Building Visual Universes for Music Artists
 
-**Version:** 1.0  
-**Date:** January 7, 2026
-
----
-
-## The Problem
-
-Independent artists know they need consistent social media to promote their music, but they don't have time to create content. They're stuck choosing between:
-- Generic AI tools (ChatGPT) that produce corporate-sounding content
-- Social media schedulers (Buffer, Later) that help post but don't help create
-- Expensive agencies ($500+/month) that aren't scalable
-
-**The real bottleneck isn't knowledge—it's execution.** Artists know what they should post, they just can't do it consistently.
+**Version:** 2.0  
+**Date:** January 8, 2026  
+**Status:** Major Pivot - Visual Universe Architecture  
+**Platform Name:** The Multiverse
 
 ---
 
-## The Solution (3 Phases)
+## The Problem (Revised)
 
-### Phase 1: Content Generation (Weeks 1-4)
-Artist provides upcoming release details (via form) → AI generates 15-20 promotional posts tailored to their release cycle → Artist copies/downloads content
+Independent artists struggle to create consistent, visually cohesive social media content that aligns with their music. The challenge isn't just creating content—it's building a **visual universe** that represents their artistic identity across all releases.
 
-**Key differentiation:** Music industry verticalization. We understand release cycles, genre conventions, and artist voice in ways generic tools never will.
+Current solutions fail because they:
+- Generate generic content without visual cohesion
+- Don't help artists establish a visual identity
+- Treat each release in isolation rather than as part of a larger artistic narrative
+- Don't facilitate collaboration with videographers, editors, and creative teams
 
-**Onboarding:**
-- **Form-based:** Fast, structured, all fields visible
-
-### Phase 2: Execution Layer (Weeks 5-12)
-Add OAuth integrations → Artists connect Instagram/TikTok → Schedule and auto-post directly from platform → Track performance
-
-**Key differentiation:** Workflow integration. We become the hub where everything connects, creating high switching costs.
-
-### Phase 3: Intelligence Network (Months 4-12+)
-Aggregate performance data across artists → Learn what content drives engagement → Provide benchmarking and predictive insights
-
-**Key differentiation:** Data moat. "Hip-hop artists in your follower range who post behind-the-scenes content get 40% more engagement" — insights only possible at scale.
+**The real opportunity:** Help artists build a visual universe where each piece of content (snapshot) is part of a cohesive visual landscape that connects their music to their social media presence.
 
 ---
 
-## How We Build Differentiation Over Time
+## The Solution: Visual Universe Platform
 
-### Short-term (Months 1-6): Vertical Expertise
-**What we know that ChatGPT doesn't:**
-- Release cycle timing (when to tease vs. announce vs. follow up)
-- Music industry language ("my new single" not "my new product")
-- Platform-specific culture (TikTok sounds vs. Instagram aesthetics)
-- Genre conventions (how indie folk promotes vs. hip-hop)
+### Core Concept: Universe → Galaxy → World → Snapshots
 
-**How we capture this:**
-- Artist onboarding captures genre, style, past successes
-- Fine-tune prompts based on feedback ("sounds like me" vs "too generic")
-- Build template library specific to music promotion
+**Universe:** The entire artist persona - everything we know about the artist visually and analytically. The artist's data (atoms and molecules) inform the universe's decisions.
 
-### Mid-term (Months 6-18): Performance Attribution
-**The killer feature:**
-"Your Instagram Reel on Tuesday drove 47 Spotify streams"
-"Posts with behind-the-scenes content get 3x more engagement for you"
+**Galaxy:** An entire release "block" for an artist (e.g., an album, EP, or project like Kendrick Lamar's "DAMN")
 
-**How we build it:**
-1. Connect social APIs (Instagram, TikTok) → track post performance
-2. Correlate timing with streaming spikes
-3. Eventually connect streaming platforms (Spotify for Artists, Apple Music for Artists) when APIs open OR use manual CSV uploads
-4. Machine learning on patterns across artists
+**World:** A single song or release within a galaxy (e.g., "DNA" within the "DAMN" galaxy). Worlds farther from the sun are released later.
 
-**Why competitors can't copy:**
-- Requires technical integrations (time barrier)
-- Requires enough users to find patterns (network effect)
-- Requires music industry context to interpret correctly
+**Snapshots:** Individual pieces of social media content that are "snapshots" of the artist's visual landscape. Each snapshot is a video loop (10-15 seconds) with strong vignettes, positioned around the world like "memories" or "events" that occurred on that planet. They include visual/creative direction and tell the story of the world.
 
-### Long-term (Year 2+): Network Intelligence
-**The moat:**
-With enough artists, we provide competitive intelligence no one else has:
+### Key Features
 
-"Similar artists in your genre post 3x/week and average 12% engagement"
-"Artists who post behind-the-scenes 2 weeks before release get 40% more pre-saves"
-"In your city, TikTok performs best between 2-4pm for your genre"
+1. **Interactive 3D Multiverse View (Homepage)**
+   - Google Earth-style navigation: zoom in/out, pan left/right/up/down
+   - View ALL artists' universes in the Multiverse
+   - Click on galaxies or worlds to unlock more information
+   - Visual representation of release timeline (distance from sun = release date)
+   - Worlds orbit around suns, spin on their axis when viewed closely
+   - Hover over worlds to preview music (audio plays automatically)
+   - Public/private controls: greyed out worlds show "being built" messages
+   - Empty space with "+" symbol to create own universe
 
-**This only works at scale.** New entrants can't replicate without critical mass of users.
+2. **Visual Landscape System**
+   - Each world has a visual landscape representation
+   - Mix of user-uploaded images, color palettes, and Pinterest board integration
+   - Pinterest API integration to help artists visually communicate their universe/galaxy/world aesthetics
+   - **World Colors**: Each world has a unique color (dark purple, bright yellow, light grey, deep blue, hot pink, white, etc.) representing its visual identity
+   - **Sun Colors**: Galaxies have colored suns (e.g., bright yellow) that worlds orbit around
+
+3. **Snapshot Strategies & Display**
+   - AI-generated snapshot plans for each world release
+   - Includes visual/creative direction (not just captions)
+   - Organized by release cycle timing
+   - **Snapshot Display**: Rectangular videos (10-15 second loops) with strong vignettes
+   - **Spatial Positioning**: Snapshots appear around the world like "memories" or "events"
+   - **Visual Storytelling**: Snapshots tell the story of the world, not just promotional content
+
+4. **Real-Time Countdown Timers**
+   - Active countdown for each galaxy/world's release date
+   - Displayed next to galaxy/world titles
+   - Example: "DNA dropping in 65 days 10 hours, 30 mins, and 25 seconds"
+   - Info bubbles for unreleased content: "this world is currently being built. It will be viewable to the public in 33 days."
+
+5. **Audio Preview System**
+   - Hover over worlds to automatically play music previews
+   - Audio continues playing when exploring a world
+   - Music and visuals are deeply integrated
+
+5. **Collaboration System**
+   - Artists can invite videographers, editors, and creative team members
+   - Shareable links with permissions (view or edit access)
+   - Collaborators see same interface/UI
+   - Can view snapshot strategies
 
 ---
 
-## What We're NOT Building
+## User Types
 
-❌ Music production tools (stay focused on promotion)
-❌ Distribution platform (DistroKid does this)
-❌ Streaming service (don't compete with Spotify)
-❌ General social media manager (stay music-focused)
+### 1. Artists
+- Primary users who build and manage their visual universe
+- Create galaxies and worlds
+- Generate snapshot strategies
+- Invite collaborators
+
+### 2. Videographers
+- Invited collaborators with view or edit access
+- Can see visual landscapes and snapshot strategies
+- Help build visual universe through their contributions
+
+### 3. Editors
+- Invited collaborators with view or edit access
+- Can see visual landscapes and snapshot strategies
+- Help refine and execute snapshot strategies
 
 ---
 
-## Phase 1 MVP - First 3-4 Weeks
+## Architecture & Data Model
 
-### Week 1: Foundation
-- ✅ Set up project structure - **COMPLETE**
-- ✅ Build onboarding form (artist name, single details, genre, vibe/tone, release date) - **COMPLETE**
-- ⏳ Set up database to save responses - **OPTIONAL for MVP** (can be added in Phase 2)
-- ⏳ Deploy basic version - **READY** (not yet deployed)
+### Initial State
+- Artists immediately have an **empty galaxy with a sun** upon signup
+- Can use a form to create a single world within this galaxy
+- Separate onboarding form from galaxy/world creation forms
 
-### Week 2: Content Generation
-- ✅ Integrate Claude API for content generation - **COMPLETE**
-- ✅ Create prompt templates for release cycle content - **COMPLETE**
-- ✅ Build results page showing 15-20 generated posts - **COMPLETE**
-- ✅ Add copy-to-clipboard and download features - **COMPLETE** (JSON & CSV)
+### Navigation Structure
+```
+Universe (Artist's entire persona)
+  └── Galaxy (Release block/project)
+      └── World (Individual song/release)
+          ├── Visual Landscape (images, color palettes, Pinterest board)
+          ├── Snapshot Strategy (AI-generated snapshots with visual direction)
+          └── Countdown Timer (real-time release countdown)
+```
 
-### Week 3: Polish & Test
-- ⏳ Create simple quote graphics using Fabric.js (text over cover art) - **NOT YET** (dependency added, implementation pending)
-- ✅ Improve UI/UX based on initial testing - **READY** (can iterate based on feedback)
-- ⏳ Test with 3-5 real artists with upcoming releases - **READY TO START**
-- ⏳ Iterate on prompts based on feedback - **READY** (prompts in `lib/claude.ts`)
+### Visual Representation
+- **3D Multiverse View (Homepage)**: All artists' universes visible, Google Earth-style navigation
+- **Universe View**: Multiple galaxies visible, equidistant from each other
+- **Galaxy View**: Worlds orbit around a sun (bright, colored suns), distance from sun = release timeline
+- **World View**: World spins on its axis, snapshots appear as rectangular videos with vignettes around it
+- **Color Coding**: Each world has unique color representing its visual identity
+- **Motion States**: Active worlds orbit and spin; unreleased worlds are greyed out and static
+- **Moons**: Worlds can have moons orbiting them (bonus tracks, remixes, etc.)
+- **Click interactions**: Unlock detailed information about galaxies/worlds
+- **Hover interactions**: Preview music automatically plays when hovering over worlds
 
-### Week 4: Validate & Plan
-- Get 10 artists using it for real releases
-- Measure: Do they actually use the content? Does it save them time?
-- Decide next priority: Better content quality OR add scheduling/posting?
+---
 
-**Success metric:** Artists report using at least 8 of the 15 generated posts and say it saved them 2+ hours.
+## Terminology Changes
+
+| Old Term | New Term | Notes |
+|----------|----------|-------|
+| Content | Snapshots | Each piece of content is a "snapshot" of the visual universe |
+| Content Plan/Strategy | Snapshot Plan/Strategy | Plans for creating snapshots |
+| Posts | Snapshots | Individual social media pieces |
+| Release | World | A single song/release within a galaxy |
+| Project/Album | Galaxy | A collection of releases (worlds) |
+
+---
+
+## Technical Requirements
+
+### New Integrations Needed
+
+1. **Pinterest API**
+   - Allow artists to create/import Pinterest boards
+   - Visual reference system for universe/galaxy/world aesthetics
+   - Help communicate visual direction to collaborators
+
+2. **Image Upload System**
+   - User-uploaded images for visual landscapes
+   - Color palette extraction/generation
+   - Visual mood board creation
+
+3. **Real-Time Countdown System**
+   - WebSocket or polling for accurate countdown timers
+   - Updates every second for precision
+
+4. **Collaboration System**
+   - Shareable link generation
+   - Permission management (view/edit)
+   - Multi-user access to same universe/galaxy/world
+
+### UI/UX Requirements
+
+1. **3D Multiverse Navigation System**
+   - **Homepage**: Interactive 3D view of ALL artists' universes
+   - Pan and zoom controls (Google Earth-style)
+   - Click-to-explore interactions
+   - Smooth transitions between zoom levels (Multiverse → Universe → Galaxy → World)
+   - Visual representation of spatial relationships (distance from sun = release timeline)
+   - **World Motion**: Worlds orbit around suns, spin on axis when viewed closely
+   - **Color System**: Unique colors for each world, colored suns for galaxies
+   - **Moons**: Worlds can have moons orbiting them
+   - **Empty Space Creation**: Hover over empty space to reveal "+" symbol for creating universe
+
+2. **Visual Landscape View**
+   - Image gallery/grid
+   - Color palette display
+   - Pinterest board integration
+   - Mood board interface
+
+3. **Snapshot Strategy Display**
+   - Visual/creative direction included
+   - Platform-specific recommendations
+   - Timing and scheduling information
+   - Copy/download functionality (maintained from current system)
+   - **Video Format**: Rectangular videos with strong vignettes
+   - **Looping**: 10-15 second loops
+   - **Spatial Layout**: Positioned around the world like memories/events
+   - **Visual Storytelling**: Each snapshot tells part of the world's story
 
 ---
 
@@ -123,115 +200,135 @@ With enough artists, we provide competitive intelligence no one else has:
 
 **Last Updated:** January 8, 2026
 
-### ✅ Completed (Week 1-2)
+### ✅ Completed (Legacy - Pre-Pivot)
 
 **Core Features:**
 - ✅ Next.js 15 project structure with TypeScript and Tailwind CSS
-- ✅ Onboarding form with validation
+- ✅ Onboarding form with validation (to be updated for new architecture)
 - ✅ Claude API integration with enhanced prompts
-- ✅ Results display page with posts grouped by week
-- ✅ Copy-to-clipboard functionality for each post
+- ✅ Results display page with posts grouped by week (to be converted to snapshots)
+- ✅ Copy-to-clipboard functionality
 - ✅ Download as JSON and CSV
-- ✅ All Shadcn UI components created
-- ✅ Error handling and validation
-- ✅ Type-safe API routes
 
 **Technical Decisions:**
-- ✅ **Framework:** Next.js 15 with App Router (decision made)
+- ✅ **Framework:** Next.js 15 with App Router
 - ✅ **Styling:** Tailwind CSS + Shadcn UI (New York style, Slate color)
 - ✅ **Validation:** Zod schemas
 - ✅ **Forms:** React Hook Form
-- ✅ **API:** Next.js API routes (migrated from FastAPI)
+- ✅ **API:** Next.js API routes
 
-### ⏳ In Progress (Week 3)
+### 🚧 In Progress (Post-Pivot)
 
-- ⏳ Quote graphics generation (Fabric.js dependency added, implementation pending)
-- ⏳ Testing with real artists
-- ⏳ UI/UX refinements based on feedback
+- ⏳ **Architecture Redesign:** Universe → Galaxy → World structure
+- ⏳ **Terminology Updates:** Content → Snapshots throughout codebase
+- ⏳ **Visual Navigation:** Google Earth-style interface research and planning
+- ⏳ **New User Journeys:** Artist, Videographer, Editor journeys (to be documented)
 
-### 📋 Pending (Week 4+)
+### 📋 Pending (New Features)
 
-- ⏳ Database integration (optional for MVP)
-- ⏳ Production deployment
-- ⏳ User testing and validation
-- ⏳ Performance optimization
+- ⏳ **Pinterest API Integration:** Research and implementation
+- ⏳ **Image Upload System:** Visual landscape image management
+- ⏳ **Color Palette System:** Extraction and display
+- ⏳ **Real-Time Countdown:** WebSocket/polling implementation
+- ⏳ **Collaboration System:** Shareable links and permissions
+- ⏳ **Database Schema:** Universe/Galaxy/World data model
+- ⏳ **Visual Navigation UI:** Google Earth-style interface
+- ⏳ **Updated Onboarding:** Separate forms for initial setup vs. world creation
 
 ---
 
-## Tech Stack
+## Tech Stack (Updated)
 
-### ✅ Decision Made: Next.js
-
-**Status:** Next.js 15 with App Router has been implemented and is working.
-
-**Why Next.js was chosen:**
-- Combines React frontend + API backend in one framework
-- Migration from FastAPI was straightforward
-- One codebase for front + back
-- Built-in deployment (Vercel)
-- Great for rapid iteration
-- Easier to hire for later
-- Used by most social media scheduling tools (Postiz, Mixpost)
-
-**Migration Status:** ✅ Complete - FastAPI backend migrated to Next.js API routes
-
-### Core Dependencies (regardless of choice)
+### Core (Existing)
+- **Framework:** Next.js 15 with App Router
+- **Styling:** Tailwind CSS + Shadcn UI
 - **AI:** Claude API via `@anthropic-ai/sdk`
-- **Database:** Supabase (free PostgreSQL + auth)
-- **UI Components:** Shadcn/ui (copy-paste React components)
-- **Image Generation:** Fabric.js (for quote graphics)
-- **File Uploads:** Uploadthing (easier than S3)
-- **Deployment:** Vercel (for Next.js) or Railway (for Python)
+- **Database:** Supabase (PostgreSQL + auth)
+- **Validation:** Zod schemas
+- **Forms:** React Hook Form
 
-### Phase 2 Additions (Later)
-- **Instagram API:** `instagram-private-api` (unofficial but works)
-- **Calendar UI:** React Big Calendar or Shadcn calendar
-- **Image AI:** Replicate (access to FLUX, Stable Diffusion, etc.)
+### New Additions Needed
+- **Pinterest API:** For visual reference boards
+- **Image Processing:** For color palette extraction and visual landscape management
+- **Real-Time Updates:** WebSocket or Server-Sent Events for countdown timers
+- **File Uploads:** Uploadthing or similar for visual landscape images and snapshot videos
+- **3D/Interactive UI:** Library for Google Earth-style navigation (research needed - Three.js, React Three Fiber, or similar)
+- **Audio System:** Music preview playback on hover, background audio during world exploration
+- **Video Processing:** Snapshot video upload, looping, vignette effects
+- **Animation System:** World orbital motion, spinning animations, moon orbits
 
----
-
-## Why This Approach Works
-
-### For Jonah
-- Can build MVP in 3-4 weeks
-- Tests core value prop (saves artists time) before complex features
-- Builds real technical skills (OAuth, APIs, data pipelines) that translate to jobs
-- Creates portfolio piece showing product thinking + execution
-
-### For Artists  
-- Solves immediate pain (content creation) without overwhelming them
-- Low friction (no integrations required for MVP)
-- See value in first session
-- Natural upgrade path to scheduling/automation later
-
-### For Business
-- Validates willingness to pay before building expensive features
-- Creates foundation for data moat
-- Clear path to $15-30/month subscription
-- Network effects kick in as more artists join
+### Phase 2+ Additions
+- **Instagram API:** For snapshot posting
+- **Calendar UI:** For snapshot scheduling
+- **Image AI:** Replicate (FLUX, Stable Diffusion) for visual generation
+- **Analytics:** Performance tracking for snapshots
 
 ---
 
-## Competitive Positioning
+## Migration Strategy
 
-**vs. ChatGPT:** We understand music promotion specifically, not general marketing
+### Phase 1: Foundation (Current)
+- Keep existing form-based onboarding for now
+- Update terminology in codebase (content → snapshots)
+- Plan new data structures
 
-**vs. Buffer/Later:** We help create content, not just schedule it
+### Phase 2: Core Architecture
+- Implement Universe/Galaxy/World data model
+- Build Google Earth-style navigation interface
+- Create visual landscape system
 
-**vs. Agencies:** Self-service and affordable ($20/month vs $500+/month)
+### Phase 3: Enhanced Features
+- Add Pinterest integration
+- Implement collaboration system
+- Add real-time countdown timers
 
-**vs. Fanify (AI music promotion):** They focus on paid ads, we focus on organic content + eventual performance attribution
+### Phase 4: Polish & Scale
+- Refine visual navigation UX
+- Optimize performance
+- Add advanced collaboration features
 
-**The white space:** Nobody combines AI content generation + execution + music industry expertise + performance intelligence in one platform.
+---
+
+## Key Differentiators
+
+### vs. ChatGPT
+- **Visual Universe Focus:** Not just content generation, but building cohesive visual identity
+- **Music Industry Context:** Understanding of release cycles, visual storytelling
+- **Collaboration:** Built for creative teams, not just individual artists
+
+### vs. Buffer/Later
+- **Visual-First:** Visual landscape and creative direction, not just scheduling
+- **Universe Concept:** Long-term visual identity building, not just individual posts
+- **Music-Specific:** Designed for music release cycles and promotion
+
+### vs. Agencies
+- **Self-Service:** Artists build their own visual universe
+- **Collaborative:** Invite team members without agency overhead
+- **Scalable:** AI-powered snapshot generation with visual direction
+
+**The white space:** Nobody combines visual universe building + snapshot generation + music industry expertise + collaboration in one platform.
 
 ---
 
 ## Next Steps
 
-1. ✅ **COMPLETE:** Next.js chosen and implemented
-2. ✅ **COMPLETE:** Onboarding form + Claude integration + results display
-3. ⏳ **IN PROGRESS (Week 3):** Add quote graphics (Fabric.js) + test with 3-5 artists
-4. ⏳ **UPCOMING (Week 4):** Test with 10 real artists + validate usage
-5. ⏳ **FUTURE (Month 2):** Decide: scheduling features OR content quality improvements OR more content types?
+1. ⏳ **Document User Journeys:** Artist, Videographer, Editor journeys (awaiting user input)
+2. ⏳ **Update Data Models:** Create Universe/Galaxy/World/Snapshot types
+3. ⏳ **Research Navigation Libraries:** Find solution for Google Earth-style interface
+4. ⏳ **Plan Pinterest Integration:** Research API and implementation approach
+5. ⏳ **Design Visual Landscape UI:** Mockups and component planning
+6. ⏳ **Update Onboarding Flow:** Separate initial setup from world creation
 
-The path to differentiation is clear: Start with vertical expertise → Add execution layer → Build data moat. Each phase unlocks the next.
+---
+
+## Questions for Future Resolution
+
+- Exact number of snapshots per world (removed "15-20" requirement for now)
+- Specific visual navigation library/technology choice
+- Pinterest API access and rate limits
+- Color palette generation method (AI vs. manual)
+- Snapshot strategy generation frequency and triggers
+
+---
+
+**This spec will be updated as user journeys are documented and implementation progresses.**
