@@ -4,29 +4,37 @@ AI-powered content generation for music artists. Generate 15-20 promotional soci
 
 ## Quick Start
 
-See [docs/INSTALLATION.md](./docs/INSTALLATION.md) for complete setup instructions.
+**For complete setup instructions, see [docs/INSTALLATION.md](./docs/INSTALLATION.md)**
 
-### Prerequisites
+### Quick Setup (3 Steps)
 
-- Node.js 18+ installed
-- npm package manager
-- Claude API key (get from https://console.anthropic.com/)
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-### Installation
+2. **Set up environment variables:**
+   ```bash
+   # Create .env.local file
+   touch .env.local
+   
+   # Add your Claude API key (get from https://console.anthropic.com/)
+   # Edit .env.local and add:
+   ANTHROPIC_API_KEY=your_api_key_here
+   NEXT_PUBLIC_APP_URL=http://localhost:3000
+   ```
 
-```bash
-# 1. Install dependencies
-npm install
+3. **Start the dev server:**
+   ```bash
+   npm run dev
+   ```
 
-# 2. Set up environment variables
-cp .env.local.example .env.local
-# Edit .env.local and add your ANTHROPIC_API_KEY
+4. **Open in browser:**
+   ```
+   http://localhost:3000
+   ```
 
-# 3. Start development server
-npm run dev
-```
-
-Open http://localhost:3000 to use the application.
+That's it! You're ready to generate content calendars.
 
 ## Tech Stack
 
@@ -65,10 +73,13 @@ comeup_nextjs/
 
 All documentation is in the `docs/` folder:
 
-- [Installation Guide](./docs/INSTALLATION.md) - Complete setup instructions
+- **[Quick Setup](./docs/JONAH_SETUP.md)** - Quick reference for getting started
+- **[Installation Guide](./docs/INSTALLATION.md)** - Complete setup instructions
+- **[Documentation Index](./docs/README.md)** - Full documentation overview
+- [Product Specification](./docs/comeup_spec_revised.md) - Product spec and roadmap
 - [Project Status](./docs/PROJECT_STATUS.md) - Current project status
 - [Migration Notes](./docs/MIGRATION_NOTES.md) - Migration from FastAPI
-- [API Documentation](./docs/API.md) - API endpoint documentation
+- [Conversational Onboarding](./docs/CONVERSATIONAL_ONBOARDING.md) - Chat feature docs
 
 ## License
 

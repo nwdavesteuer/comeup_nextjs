@@ -123,6 +123,11 @@ http://localhost:3000
 You should see:
 - The "Artist Content Platform" homepage
 - An onboarding form
+- A "💬 Try Conversational Onboarding" button
+
+**Try both options:**
+- **Traditional Form:** Fill out the form directly
+- **Conversational:** Click the button to chat with Claude (playful, guided experience)
 
 ## Testing the Application
 
@@ -151,6 +156,21 @@ You should see:
    - Click "Download JSON" to download all posts as JSON
    - Click "Download CSV" to download as CSV
    - Click "Generate Another" to start over
+
+### Test the Conversational Onboarding
+
+1. **Go to chat interface:**
+   - Click "💬 Try Conversational Onboarding" on homepage
+   - Or navigate to `http://localhost:3000/onboarding-chat`
+
+2. **Chat with Claude:**
+   - Claude will greet you and ask questions
+   - Answer naturally (e.g., "My artist name is Midnight Drive")
+   - Claude guides you through all the questions
+
+3. **Generate content:**
+   - Once all info is collected, say "yes" or "generate"
+   - Content is generated and displayed
 
 ## Troubleshooting
 
