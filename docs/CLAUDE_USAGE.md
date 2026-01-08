@@ -30,24 +30,6 @@ Claude API is integrated into the application and ready to use. Here's how it wo
 
 **API Endpoint:** `POST /api/generate`
 
-### 2. **Chat Interface** (New - For Testing)
-
-**Location:** `/chat` page
-
-**Purpose:** 
-- Test prompts interactively
-- Iterate on prompt structure
-- Get immediate feedback from Claude
-- Refine content generation logic
-
-**How to use:**
-1. Navigate to `http://localhost:3000/chat`
-2. Type a message to Claude
-3. Get real-time responses
-4. Test different prompt variations
-
-**API Endpoint:** `POST /api/chat`
-
 ## Current Prompt Structure
 
 The main content generation prompt includes:
@@ -67,13 +49,6 @@ The main content generation prompt includes:
 3. Submit and wait for generation (10-30 seconds)
 4. Review the generated posts
 
-### Test the Chat Interface:
-1. Go to `http://localhost:3000/chat`
-2. Try prompts like:
-   - "Generate 5 Instagram captions for an indie rock artist"
-   - "What makes a good social media post for music promotion?"
-   - "Help me refine the prompt for release cycle content"
-
 ## Iterating on Prompts
 
 ### To Modify the Main Prompt:
@@ -89,9 +64,9 @@ function buildContentPrompt(data: ArtistOnboardingData): string {
 
 ### To Test Prompt Changes:
 
-1. Use the chat interface (`/chat`) to test variations
-2. Once satisfied, update `buildContentPrompt()` in `lib/claude.ts`
-3. Test the full flow through the onboarding form
+1. Update `buildContentPrompt()` in `lib/claude.ts`
+2. Test the full flow through the onboarding form
+3. Review generated content and iterate
 
 ## API Configuration
 
@@ -109,22 +84,15 @@ The integration includes:
 
 ## Next Steps
 
-1. **Test the chat interface** - Use `/chat` to iterate on prompts
-2. **Refine prompts** - Based on real artist feedback
-3. **Add prompt variations** - Different prompts for different genres
-4. **A/B test prompts** - Compare different prompt structures
+1. **Refine prompts** - Based on real artist feedback
+2. **Add prompt variations** - Different prompts for different genres
+3. **A/B test prompts** - Compare different prompt structures
+4. **Iterate on content quality** - Improve based on usage data
 
 ## Example Use Cases
 
-### Content Generation (Current)
+### Content Generation
 - Generate 15-20 posts for a release cycle
 - Structured output with platforms, timing, captions
-
-### Chat Interface (New)
-- Test prompt variations
-- Get Claude's advice on content strategy
-- Iterate on prompt structure
-- Debug generation issues
-
-Both interfaces use the same Claude API key and model, so you can test freely!
+- Tailored to artist's genre, vibe, and release date
 

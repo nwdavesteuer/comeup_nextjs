@@ -75,12 +75,9 @@ Open http://localhost:3000 in your browser.
 
 ## Features
 
-### Two Onboarding Methods
+### Onboarding Form
 
-1. **Traditional Form** (`/`) - Fast, structured form
-2. **Conversational** (`/onboarding-chat`) - Playful, Claude-guided chat experience
-
-Both methods generate the same content calendar with 15-20 posts.
+Fill out the structured form to generate your content calendar with 15-20 posts.
 
 ### Content Generation
 
@@ -97,9 +94,7 @@ Both methods generate the same content calendar with 15-20 posts.
 comeup_nextjs/
 ├── app/
 │   ├── api/
-│   │   ├── generate/          # Content generation API
-│   │   └── chat/              # Conversational onboarding API
-│   ├── onboarding-chat/      # Chat interface page
+│   │   └── generate/          # Content generation API
 │   ├── page.tsx               # Homepage with form
 │   └── layout.tsx             # Root layout
 ├── components/
@@ -157,19 +152,6 @@ Generate social media posts for an artist's release.
 }
 ```
 
-### POST `/api/chat`
-
-Conversational onboarding chat endpoint.
-
-**Request Body:**
-```json
-{
-  "messages": [
-    { "role": "user", "content": "My artist name is..." }
-  ],
-  "onboardingData": { ... }
-}
-```
 
 ## Testing
 
@@ -188,12 +170,6 @@ Conversational onboarding chat endpoint.
    - Posts grouped by week
    - Copy, download, or generate another
 
-### Test Conversational Onboarding
-
-1. Click "💬 Try Conversational Onboarding" on homepage
-2. Chat with Claude - answer questions naturally
-3. Claude guides you through all required info
-4. Content is automatically generated when ready
 
 ## Troubleshooting
 
@@ -252,7 +228,6 @@ Restart TypeScript server in your IDE:
 - [comeup_spec_revised.md](./comeup_spec_revised.md) - Product specification
 - [PROJECT_STATUS.md](./PROJECT_STATUS.md) - Current project status
 - [MIGRATION_NOTES.md](./MIGRATION_NOTES.md) - Migration from FastAPI
-- [CONVERSATIONAL_ONBOARDING.md](./CONVERSATIONAL_ONBOARDING.md) - Chat feature docs
 
 ## Resources
 

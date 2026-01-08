@@ -55,19 +55,9 @@ http://localhost:3000
 ## What You'll See
 
 1. **Homepage** with onboarding form
-2. **"Try Conversational Onboarding"** button - click to try the chat interface
-3. Fill out the form or chat with Claude
-4. Generate content calendar
-5. View results with copy/download options
-
-## Testing
-
-Try both onboarding methods:
-
-1. **Traditional Form** (`/`) - Fast, structured
-2. **Conversational** (`/onboarding-chat`) - Playful, Claude-guided
-
-Both generate the same content calendar!
+2. Fill out the form with your release details
+3. Generate content calendar
+4. View results with copy/download options
 
 ## If Something Doesn't Work
 

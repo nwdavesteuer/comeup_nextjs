@@ -20,13 +20,12 @@ Independent artists know they need consistent social media to promote their musi
 ## The Solution (3 Phases)
 
 ### Phase 1: Content Generation (Weeks 1-4)
-Artist provides upcoming release details (via form or conversational interface) → AI generates 15-20 promotional posts tailored to their release cycle → Artist copies/downloads content
+Artist provides upcoming release details (via form) → AI generates 15-20 promotional posts tailored to their release cycle → Artist copies/downloads content
 
 **Key differentiation:** Music industry verticalization. We understand release cycles, genre conventions, and artist voice in ways generic tools never will.
 
-**Onboarding Options:**
-- **Traditional Form:** Fast, structured, all fields visible
-- **Conversational Interface:** Engaging, playful, Claude-guided chat experience
+**Onboarding:**
+- **Form-based:** Fast, structured, all fields visible
 
 ### Phase 2: Execution Layer (Weeks 5-12)
 Add OAuth integrations → Artists connect Instagram/TikTok → Schedule and auto-post directly from platform → Track performance
@@ -96,7 +95,6 @@ With enough artists, we provide competitive intelligence no one else has:
 ### Week 1: Foundation
 - ✅ Set up project structure - **COMPLETE**
 - ✅ Build onboarding form (artist name, single details, genre, vibe/tone, release date) - **COMPLETE**
-- ✅ Build conversational onboarding interface - **COMPLETE** (Claude-initiated chat flow)
 - ⏳ Set up database to save responses - **OPTIONAL for MVP** (can be added in Phase 2)
 - ⏳ Deploy basic version - **READY** (not yet deployed)
 
@@ -129,8 +127,7 @@ With enough artists, we provide competitive intelligence no one else has:
 
 **Core Features:**
 - ✅ Next.js 15 project structure with TypeScript and Tailwind CSS
-- ✅ Onboarding form with validation (traditional form-based approach)
-- ✅ **Conversational onboarding interface** - Claude-initiated chat flow with playful, inviting tone
+- ✅ Onboarding form with validation
 - ✅ Claude API integration with enhanced prompts
 - ✅ Results display page with posts grouped by week
 - ✅ Copy-to-clipboard functionality for each post
@@ -232,39 +229,9 @@ With enough artists, we provide competitive intelligence no one else has:
 ## Next Steps
 
 1. ✅ **COMPLETE:** Next.js chosen and implemented
-2. ✅ **COMPLETE:** Onboarding form + conversational onboarding + Claude integration + results display
+2. ✅ **COMPLETE:** Onboarding form + Claude integration + results display
 3. ⏳ **IN PROGRESS (Week 3):** Add quote graphics (Fabric.js) + test with 3-5 artists
 4. ⏳ **UPCOMING (Week 4):** Test with 10 real artists + validate usage
 5. ⏳ **FUTURE (Month 2):** Decide: scheduling features OR content quality improvements OR more content types?
-
-## New Features Added
-
-### Conversational Onboarding Interface
-
-**Location:** `/onboarding-chat`
-
-**Description:** A playful, chat-based onboarding experience where Claude initiates the conversation and guides users through collecting release information naturally.
-
-**Features:**
-- Claude starts with friendly, inviting greeting
-- Natural conversation flow (one question at a time)
-- Playful, supportive tone (uses emojis naturally)
-- Automatic data extraction from user responses
-- Seamless transition to content generation
-- Results display integration
-
-**User Experience:**
-- More engaging than traditional form
-- Feels like talking to a friend who understands music
-- Better for users who need guidance
-- Still fast and efficient
-
-**Technical Implementation:**
-- Dynamic system prompt that updates based on collected data
-- Smart data extraction (handles multiple date formats, quoted titles, etc.)
-- Automatic content generation trigger when all data collected
-- Integrated with main content generation API
-
-**Access:** Available at `http://localhost:3000/onboarding-chat` or via button on homepage
 
 The path to differentiation is clear: Start with vertical expertise → Add execution layer → Build data moat. Each phase unlocks the next.

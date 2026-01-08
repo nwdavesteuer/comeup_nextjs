@@ -79,7 +79,6 @@ All documentation is in the `docs/` folder:
 - [Product Specification](./docs/comeup_spec_revised.md) - Product spec and roadmap
 - [Project Status](./docs/PROJECT_STATUS.md) - Current project status
 - [Migration Notes](./docs/MIGRATION_NOTES.md) - Migration from FastAPI
-- [Conversational Onboarding](./docs/CONVERSATIONAL_ONBOARDING.md) - Chat feature docs
 
 ## License
 
