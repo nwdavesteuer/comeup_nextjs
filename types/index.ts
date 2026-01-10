@@ -73,8 +73,10 @@ export interface Snapshot {
   platform: 'instagram' | 'tiktok' | 'twitter';
   contentType: 'photo' | 'video' | 'story' | 'reel' | 'carousel';
   suggestedFilmingDate?: string; // ISO date string
+  postingDate?: string; // ISO date string - specific date when to post
   timing?: string; // e.g., "Tuesday 2pm"
   order: number; // Order in release cycle
+  weekLabel?: string; // e.g., "Week -2", "Release Week", "Week +1"
 }
 
 // ============================================================================
@@ -141,5 +143,48 @@ export interface ContentPerformance {
   reach?: number;
   engagementRate?: number;
   measuredAt: string;
+}
+
+// Phase 1: Consistency Engine Types
+
+// Shoot Day
+export interface ShootDay {
+  id: string;
+  worldId: string;
+  date: string; // ISO date string
+  suggestedDate: string; // ISO date string - original suggestion
+  confirmedDate?: string; // ISO date string - when confirmed
+  status: 'suggested' | 'confirmed' | 'completed';
+  snapshots: string[]; // Array of snapshot IDs to be filmed
+  treatmentId?: string; // Link to treatment document
+  createdAt: string;
+}
+
+// Calendar Event
+export interface CalendarEvent {
+  id: string;
+  type: 'post' | 'shoot' | 'edit_deadline' | 'release';
+  title: string;
+  description?: string;
+  date: string; // ISO date string
+  time?: string; // e.g., "14:00"
+  worldId?: string;
+  snapshotId?: string;
+  shootDayId?: string;
+  syncedToGoogle?: boolean;
+  googleEventId?: string;
+  createdAt: string;
+}
+
+// Reminder Settings
+export interface ReminderSettings {
+  userId: string;
+  emailReminders: boolean;
+  inAppReminders: boolean;
+  reminderDaysBefore: number[]; // e.g., [7, 3, 1] = 7 days, 3 days, 1 day before
+  reminderTime: string; // e.g., "09:00"
+  postReminders: boolean;
+  shootReminders: boolean;
+  editDeadlineReminders: boolean;
 }
 

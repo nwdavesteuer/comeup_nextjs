@@ -60,18 +60,47 @@ export default function Home() {
   const handleWorldCreated = (worldData: Partial<World>) => {
     if (!currentGalaxy) return;
 
+    const worldId = worldData.id || `world-${Date.now()}`;
+    
+    // Update snapshot strategy with correct worldId
+    let snapshotStrategy = worldData.snapshotStrategy;
+    if (snapshotStrategy) {
+      snapshotStrategy = {
+        ...snapshotStrategy,
+        worldId: worldId,
+        snapshots: snapshotStrategy.snapshots.map(snapshot => ({
+          ...snapshot,
+          worldId: worldId,
+        })),
+      };
+    }
+
     const newWorld: World = {
-      id: worldData.id || `world-${Date.now()}`,
+      id: worldId,
       name: worldData.name || 'Unnamed World',
       galaxyId: currentGalaxy.id,
       releaseDate: worldData.releaseDate || new Date().toISOString().split('T')[0],
-      color: worldData.color || '#FFFFFF',
+      color: worldData.color || '#FFFFFF', // Ensure color is always set
       visualLandscape: worldData.visualLandscape || { images: [], colorPalette: [] },
-      snapshotStrategy: worldData.snapshotStrategy,
+      snapshotStrategy: snapshotStrategy,
       isPublic: false,
       isReleased: false,
       createdAt: new Date().toISOString(),
     };
+    
+    // Debug: Log to verify snapshots are included
+    console.log('Creating world:', {
+      id: newWorld.id,
+      name: newWorld.name,
+      releaseDate: newWorld.releaseDate,
+      hasSnapshotStrategy: !!newWorld.snapshotStrategy,
+      snapshotCount: newWorld.snapshotStrategy?.snapshots.length || 0,
+      snapshots: newWorld.snapshotStrategy?.snapshots.map(s => ({
+        id: s.id,
+        postingDate: s.postingDate,
+        worldId: s.worldId
+      }))
+    });
 
     // Update galaxy with new world
     const updatedGalaxy: Galaxy = {

@@ -10,15 +10,23 @@
 
 ## The Problem (Revised)
 
-Independent artists struggle to create consistent, visually cohesive social media content that aligns with their music. The challenge isn't just creating content—it's building a **visual universe** that represents their artistic identity across all releases.
+Independent artists struggle to create consistent, visually cohesive social media content that aligns with their music AND actually builds their fanbase. The challenge isn't just creating content—it's:
+
+1. **Posting consistently** (the #1 struggle for artists)
+2. **Creating content that reaches actual fans** (not just existing followers)
+3. **Understanding what works** (which snapshots drive streams and build superfans)
+4. **Coordinating with teams** (videographers, editors, bandmates need clear direction)
+5. **Building a visual universe** that represents their artistic identity
 
 Current solutions fail because they:
 - Generate generic content without visual cohesion
 - Don't help artists establish a visual identity
 - Treat each release in isolation rather than as part of a larger artistic narrative
 - Don't facilitate collaboration with videographers, editors, and creative teams
+- Don't track performance or show what's actually building fanbase
+- Don't help artists post consistently
 
-**The real opportunity:** Help artists build a visual universe where each piece of content (snapshot) is part of a cohesive visual landscape that connects their music to their social media presence.
+**The real opportunity:** Help artists build a visual universe where each piece of content (snapshot) is part of a cohesive visual landscape that connects their music to their social media presence, reaches new fans, drives streams, and builds superfans—all while maintaining consistency through automated planning and coordination.
 
 ---
 
@@ -76,7 +84,30 @@ Current solutions fail because they:
    - Artists can invite videographers, editors, and creative team members
    - Shareable links with permissions (view or edit access)
    - Collaborators see same interface/UI
-   - Can view snapshot strategies
+   - Can view snapshot strategies, treatments, and schedules
+   - Edit upload and review workflow
+   - Version control for edits
+
+6. **Treatment Generator**
+   - AI-generated treatments for shoot days
+   - Visual references (Pinterest integration)
+   - Shot descriptions, mood, color palette
+   - Shot list suggestions based on universe/galaxy/world
+   - Delivered 1 week before shoot days
+
+7. **Performance Insights & Fan Discovery**
+   - Track which snapshots drive streams
+   - Identify what builds superfans vs. just streams
+   - Pattern recognition: "Posts with [X] at [Y time] reach 3x more new fans"
+   - Replication suggestions: "This snapshot drove streams because [reason]"
+   - Track NEW fan engagement (not just existing followers)
+
+8. **Consistency Engine**
+   - AI-generated posting schedules based on release date
+   - Google Calendar integration
+   - Automatic reminders for posting, shoot days, edit deadlines
+   - Shoot day suggestions based on release timeline
+   - Team availability coordination
 
 ---
 
@@ -312,12 +343,27 @@ Universe (Artist's entire persona)
 
 ## Next Steps
 
-1. ⏳ **Document User Journeys:** Artist, Videographer, Editor journeys (awaiting user input)
-2. ⏳ **Update Data Models:** Create Universe/Galaxy/World/Snapshot types
-3. ⏳ **Research Navigation Libraries:** Find solution for Google Earth-style interface
-4. ⏳ **Plan Pinterest Integration:** Research API and implementation approach
-5. ⏳ **Design Visual Landscape UI:** Mockups and component planning
-6. ⏳ **Update Onboarding Flow:** Separate initial setup from world creation
+### Immediate (Based on Kiss Bang Research)
+
+1. ⏳ **World Detail View:** Create modal/sidebar with tabs (Visual, Snapshots, Performance, Treatments, Edits, Schedule)
+2. ⏳ **Enhanced Snapshot Strategy:** Add posting dates, Google Calendar sync, timeline visualization
+3. ⏳ **Treatment Generator:** AI-generated treatments with Pinterest integration, shot list suggestions
+4. ⏳ **Edit Workflow:** Upload system, review/approval interface, version control
+5. ⏳ **Performance Insights:** Track streams, views, new fans, pattern recognition, replication suggestions
+6. ⏳ **Scheduling System:** Shoot day suggestions, team availability coordination, Google Calendar sync
+7. ⏳ **Team Collaboration:** Team panel, permissions, activity feed
+
+### Foundation (Already Complete)
+- ✅ **3D Navigation:** Google Earth-style interface implemented
+- ✅ **Universe/Galaxy/World Structure:** Data model created
+- ✅ **Visual Landscape System:** Basic implementation
+- ✅ **Snapshot Generation:** AI-powered with visual descriptions
+
+### Future Enhancements
+- ⏳ **Fan Discovery Metrics:** Track new vs. existing fan engagement
+- ⏳ **Streaming Platform Integration:** Connect Spotify/Apple Music for stream attribution
+- ⏳ **Social Media Integration:** Connect Instagram/TikTok for performance tracking
+- ⏳ **Advanced Analytics:** Predictive insights, competitor benchmarking
 
 ---
 
@@ -328,6 +374,20 @@ Universe (Artist's entire persona)
 - Pinterest API access and rate limits
 - Color palette generation method (AI vs. manual)
 - Snapshot strategy generation frequency and triggers
+
+---
+
+## Feature Roadmap
+
+See `docs/FEATURE_ROADMAP.md` for complete list of features to be built based on Kiss Bang user research.
+
+**Priority Order:**
+1. **Consistency Engine** - Posting schedules, Google Calendar, reminders, shoot day suggestions
+2. **Treatment Generator** - AI treatments, Pinterest integration, shot lists
+3. **Edit Workflow** - Upload, review, version control, feedback
+4. **Performance Insights** - Social media tracking, stream attribution, fan discovery, pattern recognition
+5. **Team Collaboration** - Team management, activity feed, availability coordination
+6. **Visual Enhancements** - Status indicators, performance badges, timeline visualization
 
 ---
 

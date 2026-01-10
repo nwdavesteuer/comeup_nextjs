@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import { z } from 'zod';
 import type { SnapshotStrategy, Snapshot } from '@/types';
+import { calculatePostingDates, calculateFilmingDates } from '@/lib/snapshot-schedule';
 
 // Validation schema
 const snapshotGenerationSchema = z.object({
@@ -50,19 +51,37 @@ export async function POST(request: NextRequest) {
       throw new Error('Could not parse JSON from Claude response');
     }
 
-    const snapshots: Omit<Snapshot, 'id' | 'worldId'>[] = JSON.parse(jsonMatch[0]);
+    const snapshots: Omit<Snapshot, 'id' | 'worldId' | 'postingDate' | 'weekLabel'>[] = JSON.parse(jsonMatch[0]);
+
+    // Calculate posting dates based on release date
+    const snapshotsWithPostingDates = calculatePostingDates(snapshots, data.releaseDate);
+    
+    // Calculate filming dates (1 week before posting)
+    const snapshotsWithFilmingDates = calculateFilmingDates(snapshotsWithPostingDates);
 
     // Create snapshot strategy
+    // Note: worldId will be set by the caller when the world is created
     const strategy: SnapshotStrategy = {
       id: `snapshot-strategy-${Date.now()}`,
-      worldId: `world-${Date.now()}`, // Will be replaced by caller
-      snapshots: snapshots.map((snapshot, index) => ({
-        id: `snapshot-${index + 1}`,
-        worldId: `world-${Date.now()}`,
+      worldId: `temp-${Date.now()}`, // Temporary - will be replaced by caller
+      snapshots: snapshotsWithFilmingDates.map((snapshot, index) => ({
+        id: `snapshot-${Date.now()}-${index + 1}`,
+        worldId: `temp-${Date.now()}`, // Temporary - will be replaced by caller
         ...snapshot,
       })),
       generatedAt: new Date().toISOString(),
     };
+    
+    // Debug: Log to verify posting dates are set
+    console.log('Generated snapshot strategy:', {
+      snapshotCount: strategy.snapshots.length,
+      snapshots: strategy.snapshots.map(s => ({
+        id: s.id,
+        postingDate: s.postingDate,
+        suggestedFilmingDate: s.suggestedFilmingDate,
+        weekLabel: s.weekLabel
+      }))
+    });
 
     return NextResponse.json(strategy);
   } catch (error) {
@@ -122,12 +141,13 @@ For each snapshot, provide:
 5. **Caption**: Optional, but can suggest a caption that matches the visual
 
 SNAPSHOT DISTRIBUTION:
-- Create 6-10 snapshots total
+- Create 10-15 snapshots total
 - Distribute across the release cycle:
-  * 2-3 weeks before release: Teaser/anticipation snapshots
-  * 1 week before release: Countdown/pre-save snapshots
-  * Release week: Launch snapshots
-  * 1 week after: Post-release engagement
+  * 2 weeks before release (Week -2): 3-4 Teaser/anticipation snapshots
+  * 1 week before release (Week -1): 2-3 Countdown/pre-save snapshots
+  * Release week: 2-3 Launch snapshots
+  * 1-8 weeks after: 3-5 Post-release engagement snapshots
+- The system will automatically calculate specific posting dates based on the release date
 
 VISUAL COHERENCE:
 - All snapshots should feel part of the same visual universe
@@ -141,11 +161,12 @@ Return as a JSON array with this EXACT structure:
     "caption": "Will I find you in the forest? 🌲",
     "platform": "instagram",
     "contentType": "reel",
-    "suggestedFilmingDate": "2024-05-15",
     "timing": "Tuesday 2pm",
     "order": 1
   }
 ]
+
+NOTE: Do NOT include "postingDate" or "suggestedFilmingDate" in your response. The system will calculate these automatically based on the release date and order number.
 
 Platform options: "instagram" | "tiktok" | "twitter"
 Content type options: "photo" | "video" | "story" | "reel" | "carousel"

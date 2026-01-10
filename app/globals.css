@@ -78,3 +78,27 @@
   }
 }
 
+/* React Colorful Color Picker Styling */
+.react-colorful {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.react-colorful__saturation {
+  border-radius: 6px 6px 0 0;
+}
+
+.react-colorful__hue {
+  border-radius: 0 0 6px 6px;
+}
+
+.react-colorful__pointer {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+

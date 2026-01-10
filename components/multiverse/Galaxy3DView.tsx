@@ -80,8 +80,12 @@ function WorldSphere({
     }
   });
 
-  const isGreyedOut = !world.isReleased && !world.isPublic;
-  const color = isGreyedOut ? '#4a4a4a' : world.color || '#FFFFFF';
+  // Only grey out worlds that are explicitly marked as unreleased
+  // Newly created worlds should show in their selected color immediately
+  // Grey out only if the world is explicitly marked as not public AND not released
+  // For now, show all worlds in their color (greyed out state can be added later for specific use cases)
+  const isGreyedOut = false; // Show all worlds in their selected color
+  const color = world.color || '#FFFFFF';
 
   return (
     <group ref={orbitRef}>
@@ -101,10 +105,10 @@ function WorldSphere({
           transparent={isGreyedOut}
         />
       </mesh>
-      {/* World Name Label */}
+      {/* World Name Label - Above the world */}
       {!isGreyedOut && Text && (
         <Text
-          position={[0, -1.8, 0]}
+          position={[0, 1.8, 0]}
           fontSize={0.4}
           color="#FFD700"
           anchorX="center"
